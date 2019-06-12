@@ -9400,7 +9400,7 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __NEXT_REGISTER_PAGE('/_app', function() {
-module.exports = __webpack_require__(/*! /Users/aiello/Documents/dev_stuff/wes_bos/Advanced-React/sick-fits/frontend/node_modules/next/dist/pages/_app.js */"./node_modules/next/dist/pages/_app.js");
+module.exports = __webpack_require__(/*! /Users/aiello/Documents/dev_stuff/final_project/react-store/master/frontend/node_modules/next/dist/pages/_app.js */"./node_modules/next/dist/pages/_app.js");
 
 return { page: module.exports.default }});
 
