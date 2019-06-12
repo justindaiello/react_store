@@ -147,13 +147,7 @@ function (_Component) {
           lineNumber: 6
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 7
-        },
-        __self: this
-      }, "Hey I'm a page component"), this.props.children);
+      }, this.props.children);
     }
   }]);
 
