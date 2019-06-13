@@ -6,7 +6,7 @@ const Mutation = require('./resolvers/Mutation');
 const Query = require('./resolvers/Query');
 
 //Pull in database
-cosnt db = require('./db');
+const db = require('./db');
 
 //Create GraphQL Yoga Server
 
@@ -20,7 +20,7 @@ const createServer = () => {
       //small fix for errors, unsure what its doing
       resolverValidationOptions: {
         requireResolversForResolveType: false    
-      }
+      },
       //access DB from resolvers for auth
       context: req => ({ ...req, db })
     })
