@@ -17,7 +17,7 @@ server.start({
     origin: process.env.FRONTEND_URL    
   }    
 }, res => {
-    console.log(`Up and running on http:/localhost:${res.port}`);
+    console.log(`Up and running on http://localhost:${res.port}`);
     
 })
 
