@@ -1,4 +1,4 @@
-//connect to DB/GraphQL Yoga
+//connects to remote prisma DB and lets you query it using JS
 const { Prisma } = require('prisma-binding');
 
 const db = new Prisma({
