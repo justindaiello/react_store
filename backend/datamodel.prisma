@@ -2,5 +2,15 @@ type User {
   id: ID! @id @unique
   name: String!
   email: String!
-  test: String!
+}
+
+type Item {
+  id: ID! @id @unique
+  title: String!
+  description: String!
+  image: String
+  largeImage: String
+  price: Int!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
