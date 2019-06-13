@@ -119,18 +119,18 @@ var _jsxFileName = "/Users/aiello/Documents/dev_stuff/final_project/react-store/
 
 
 
-
+ //NProgress CSS in static folder. NPRogress will add loading bar based on next.js router input
 
 next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeStart = function () {
-  console.log('start triggered');
+  nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.start();
 };
 
 next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeComplete = function () {
-  console.log('complete triggered');
+  nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.done();
 };
 
 next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeError = function () {
-  console.log('error triggered');
+  nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.done();
 };
 
 var Logo = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.h1.withConfig({

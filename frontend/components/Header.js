@@ -4,17 +4,17 @@ import Nav from './Nav';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 
+//NProgress CSS in static folder. NPRogress will add loading bar based on next.js router input
 Router.onRouteChangeStart = () => {
-  console.log('start triggered');
-  
+  NProgress.start(); 
 }
 
 Router.onRouteChangeComplete = () => {
-  console.log('complete triggered');
+  NProgress.done();
 }
 
 Router.onRouteChangeError = () => {
-  console.log('error triggered');
+  NProgress.done();
 }
 
 const Logo = styled.h1`
