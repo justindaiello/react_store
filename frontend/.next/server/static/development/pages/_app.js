@@ -321,7 +321,7 @@ var Nav = function Nav() {
       lineNumber: 7
     },
     __self: this
-  }, "Items")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, "Shop")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/sell",
     __source: {
       fileName: _jsxFileName,
@@ -693,7 +693,7 @@ function (_App) {
     }
   }], [{
     key: "getInitialProps",
-    //enable access to page numbers from next.js. Next.js allows getInitial props to run before the inital render which allows you to destructure pageProps within the render.
+    //enable access to page numbers from next.js. Next.js allows getInitial props to run before the inital render which allows you to destructure pageProps within the render. Args HAVE to be ctx for this to work.
     value: function () {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/

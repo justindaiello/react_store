@@ -7,7 +7,7 @@ import withData from '../lib/withData'
 //App is wrapped in an apollo provider + client to expose the apollo client.
 
 class MyApp extends App {
-  //enable access to page numbers from next.js. Next.js allows getInitial props to run before the inital render which allows you to destructure pageProps within the render.
+  //enable access to page numbers from next.js. Next.js allows getInitial props to run before the inital render which allows you to destructure pageProps within the render. Args HAVE to be ctx for this to work.
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
     if (Component.getInitialProps) {
