@@ -33,7 +33,7 @@ const ItemsList = styled.div`
 
 //use the query via render prop which keeps you from having to deal with higher order components like in redux 
 
-export default class Items extends Component {
+class Items extends Component {
   render() {
     return (
       <Center>
@@ -51,3 +51,6 @@ export default class Items extends Component {
     )
   }
 }
+
+export default Items;
+export { ALL_ITEMS_QUERY };
