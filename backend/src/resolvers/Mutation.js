@@ -1,7 +1,7 @@
 //resolvers
 
 const mutations = {
-  
+
   async createItem(parent, args, context, info) {
     //interface with Prisma DB, get access to methods in prisma.graphql file. returns a promise. need to make it async/await for item to go into item value
     const item = await context.db.mutation.createItem({
@@ -28,7 +28,16 @@ const mutations = {
     }, 
     info //contains the query with item info to be returned
     );
-  }
+  },
+
+  async deleteItem(parent, args, context, info) {
+    const where = { id: args.id };
+    //find the item in the DB, pass in some raw gql
+    const item = await context.db.query.item({ where }, `{ id title }`);
+    //check if user owns item/has permissions
+    //delete it
+    return context.db.mutation.deleteItem({ where }, info);
+  },
 };
 
 module.exports = mutations;
