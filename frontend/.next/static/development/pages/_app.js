@@ -49165,7 +49165,7 @@ function (_App) {
                 pageProps = _context.sent;
 
               case 6:
-                //make the query available to the user via props in render
+                //make the query available to the user via props in render, can grab ID of object from any page
                 pageProps.query = ctx.query;
                 return _context.abrupt("return", {
                   pageProps: pageProps
