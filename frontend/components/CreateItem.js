@@ -52,7 +52,7 @@ class CreateItem extends Component {
  uploadImage = async e => {
     console.log('uploading image');
     const files = e.target.files;
-    const data = new FormData();
+    const data = new FormData(); //USE JS data api
     data.append('file', files[0]);
     data.append('upload_preset', 'reactstore') //needed to connect to cloudinary
 

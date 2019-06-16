@@ -14,7 +14,7 @@ class MyApp extends App {
       //search entire page for queries and/or mutations that need to be fetched and return the data
       pageProps = await Component.getInitialProps(ctx);
     }
-    //make the query available to the user via props in render
+    //make the query available to the user via props in render, can grab ID of object from any page
     pageProps.query = ctx.query;
     return { pageProps };
   }
