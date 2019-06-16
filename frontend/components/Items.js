@@ -53,4 +53,4 @@ class Items extends Component {
 }
 
 export default Items;
-export { ALL_ITEMS_QUERY };
+export { ALL_ITEMS_QUERY }; //export so we can use this query for delete component
