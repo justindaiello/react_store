@@ -23,20 +23,21 @@ const SINGLE_ITEM_QUERY = gql`
 // use update item mutation from the backend schema.graphql
 const UPDATE_ITEM_MUTATION = gql`
   mutation UPDATE_ITEM_MUTATION(
-    $title: String!
-    $description: String!
-    $price: Int!
-    $image: String
-    $largeImage: String
+    $id: ID!
+    $title: String
+    $description: String
+    $price: Int
 ) {
-  createItem(
+  updateItem(
+    id: $id
     title: $title
     description: $description
     price: $price
-    image: $image
-    largeImage: $largeImage
   ) {
     id
+    title
+    description
+    price
   }
 }
 `;
@@ -53,24 +54,31 @@ class UpdateItem extends Component {
     this.setState({ [name]: val });
   }
 
+  //submit handler to update item
+  updateItem = async (e, updateItemMutation) => {
+    e.preventDefault();
+    console.log('updating item!');
+    console.log(this.state);
+    const response = await updateItemMutation({
+      variables: {
+        id: this.props.id,
+        ...this.state
+      },
+    });
+    console.log('updated!!')
+  }
+
   render() {
     return (
       <Query query={SINGLE_ITEM_QUERY} variables={{ id: this.props.id }}>
         {({data, loading}) => {
           if (loading) return <p>Loading...</p>;
+          {/* avoid returning null if ID is wrong in url */}
+          if (!data.item) return <p>This item does not exist</p>
           return (
         <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
-          {(createItem, { loading, error }) => (
-          <Form onSubmit={async e => {
-            e.preventDefault();
-            //call the mutation function
-            const res = await createItem();
-            //route to single page of created item
-            Router.push({
-              pathname: '/item',
-              query: { id: res.data.createItem.id }
-            })
-          }}> 
+          {(updateItem, { loading, error }) => (
+          <Form onSubmit={e => this.updateItem(e, updateItem)}> 
           <Error error={error} />
             {/* use fieldset here b/c you can grey it out while loading aria for accessability apollo will turn loading to true or false for us */}
             <fieldset disabled={loading} aria-busy={loading}> 
@@ -112,7 +120,7 @@ class UpdateItem extends Component {
                 onChange={this.handleChange}
               />
             </label> 
-            <button type="submit">Submit</button>
+            <button type="submit">Sav{loading ? 'ing' : 'e'} Changes</button>
             </fieldset>
           </Form>
           )}
