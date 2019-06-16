@@ -47,6 +47,28 @@ class CreateItem extends Component {
     this.setState({ [name]: val });
   }
 
+  //handle the upload of images from cloudinary 
+
+ uploadImage = async e => {
+    console.log('uploading image');
+    const files = e.target.files;
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'reactstore') //needed to connect to cloudinary
+
+    //hit the cloudinary api..can change info on cloudinary settings page
+    const res = await fetch('http://api.cloudinary.com/v1_1/reactstore/image/upload', {
+      method: 'POST',
+      body: data
+    });
+    //parse the data that comes back into json
+    const file = await res.json();
+    console.log(file);
+    this.setState({
+      image: file.secure_url,
+      largeImage: file.eager[0].secure_url
+    })
+  }
 
   render() {
     return (
@@ -65,6 +87,20 @@ class CreateItem extends Component {
         <Error error={error} />
           {/* use fieldset here b/c you can grey it out while loading aria for accessability apollo will turn loading to true or false for us */}
           <fieldset disabled={loading} aria-busy={loading}> 
+
+          <label htmlFor="image">
+            Image
+            <input 
+              type="file" 
+              id="file" 
+              name="file" 
+              placeholder="Upload an Image" 
+              required 
+              // value={this.state.image} 
+              onChange={this.uploadImage}
+            />
+          </label> 
+
           <label htmlFor="title">
             Title
             <input 
