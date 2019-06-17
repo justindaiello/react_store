@@ -40,7 +40,7 @@ class DeleteItem extends Component {
               deleteItem();
             }
           }}>
-          Delete</button>
+          Delete ❌</button>
         )}
       </Mutation>
     )
