@@ -29,13 +29,7 @@ const Inner = styled.div`
 
 //inject global css
 injectGlobal`
-  @font-face {
-    font-family: radnika_next;
-    src: url('/static/radnikanext-medium-webfont.woff2')
-    format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
+  @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
   html {
     box-sizing: border-box;
     /* make font base 10 */
@@ -51,7 +45,7 @@ injectGlobal`
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
-    font-family: radnika_next;
+    font-family: 'Lato', sans-serif;
   }
 
   a {

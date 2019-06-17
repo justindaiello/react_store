@@ -18,14 +18,13 @@ Router.onRouteChangeError = () => {
 }
 
 const Logo = styled.h1`
-  font-size: 4rem;
+  font-size: 3rem;
+  font-weight: 600;
   margin-left: 2rem;
   position: relative;
-  z-index: 2;
   a {
     padding: 0.5rem 1rem;
     color: black;
-    text-transform: uppercase;
     text-decoration: none;
   }
   @media (max-width: 1300px) {
@@ -36,7 +35,7 @@ const Logo = styled.h1`
 
 const StyledHeader = styled.header`
   .bar {
-    border-bottom: 10px solid ${props => props.theme.black};
+    border-bottom: 10px solid ${props => props.theme.lightBlue};
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
@@ -58,7 +57,7 @@ const Header = () => (
     <div className="bar">
       <Logo>
         <Link href="/">
-          <a>React Store</a>
+          <a>REACT STORE</a>
         </Link>
       </Logo>
       <Nav />
