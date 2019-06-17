@@ -3,7 +3,6 @@ import { Mutation } from 'react-apollo'; //allow us to push/change data
 import gql from 'graphql-tag'; //access gql queries
 import Router from 'next/router'; //to route to single page on form submit
 import Form from './styles/Form';
-import formatMoney from '../lib/formatMoney';
 import Error from './ErrorMessage';
 
 

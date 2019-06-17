@@ -5,11 +5,16 @@ import { log } from 'async';
 import styled from 'styled-components';
 import Item from './Item';
 import Pagination from './Pagination';
+import { perPage } from '../config';
 
 //query Apollo recommends putting queries in the actual file you are using them in rather than another file. Good practice to put all queries in all caps
 const ALL_ITEMS_QUERY = gql`
-  query ALL_ITEMS_QUERY {
-    items {
+  query ALL_ITEMS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
+    items(
+      first: $first,
+      skip: $skip,
+      orderBy: createdAt_DESC
+      ) {
       id
       title
       price 
@@ -39,7 +44,12 @@ class Items extends Component {
     return (
       <Center>
         <Pagination page={this.props.page} />
-          <Query query={ALL_ITEMS_QUERY}>
+          <Query 
+            query={ALL_ITEMS_QUERY}
+            variables={{
+              skip: this.props.page * perPage - perPage,
+              first: perPage
+            }}>
           {/* payload destructured/render prop*/}
             {({ data, error, loading }) => {
               if (loading) return <p>Loading..</p>;
