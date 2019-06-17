@@ -1,15 +1,13 @@
-//Fire up the node server!
+//Express/Node Server
+const cookieParser = require('cookie-parser') //Middleware to expose helper functions for working with cookies
+require('dotenv').config({ path: 'variables.env' }) //make .env variables available
+const createServer = require('./createServer'); //import the create server file
+const db = require('./db'); //import database
+const server = createServer(); 
 
-//make .env variables available
-require('dotenv').config({ path: 'variables.env' })
+//allows use of any existing express middleware, cookies in this case. Allows access inside a formatted object rather than a string
+server.express.use(cookieParser()); 
 
-//import the create server file
-const createServer = require('./createServer');
-
-//import database
-const db = require('./db');
-
-const server = createServer();
 server.start({
   //make endpoint visitably only by approved urls
   cors: {
