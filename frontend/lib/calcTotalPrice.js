@@ -1,3 +1,5 @@
+//Function credit to Wes Bos
+
 export default function calcTotalPrice(cart) {
   return cart.reduce((tally, cartItem) => {
     if (!cartItem.item) return tally;
