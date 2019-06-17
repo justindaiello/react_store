@@ -3,7 +3,8 @@ import { Query } from 'react-apollo'; //query directly into this component
 import gql from 'graphql-tag'; //get access to graph ql queries
 import { log } from 'async';
 import styled from 'styled-components';
-import Item from './Item'
+import Item from './Item';
+import Pagination from './Pagination';
 
 //query Apollo recommends putting queries in the actual file you are using them in rather than another file. Good practice to put all queries in all caps
 const ALL_ITEMS_QUERY = gql`
@@ -37,16 +38,18 @@ class Items extends Component {
   render() {
     return (
       <Center>
-        <Query query={ALL_ITEMS_QUERY}>
-        {/* payload destructured/render prop*/}
-          {({ data, error, loading }) => {
-            if (loading) return <p>Loading..</p>;
-            if (error) return <p>Error: {error.message}</p>;
-            return <ItemsList>
-              {data.items.map(item => <Item item={item} key={item.id}/>)}
-            </ItemsList>
-          }}
-        </Query>
+        <Pagination page={this.props.page} />
+          <Query query={ALL_ITEMS_QUERY}>
+          {/* payload destructured/render prop*/}
+            {({ data, error, loading }) => {
+              if (loading) return <p>Loading..</p>;
+              if (error) return <p>Error: {error.message}</p>;
+              return <ItemsList>
+                {data.items.map(item => <Item item={item} key={item.id}/>)}
+              </ItemsList>
+            }}
+          </Query>
+        <Pagination page={this.props.page} />
       </Center>
     )
   }
