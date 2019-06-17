@@ -1,5 +1,6 @@
 //Express/Node Server
 const cookieParser = require('cookie-parser') //Middleware to expose helper functions for working with cookies
+const jwt = require('jsonwebtoken');
 require('dotenv').config({ path: 'variables.env' }) //make .env variables available
 const createServer = require('./createServer'); //import the create server file
 const db = require('./db'); //import database
@@ -7,6 +8,18 @@ const server = createServer();
 
 //allows use of any existing express middleware, cookies in this case. Allows access inside a formatted object rather than a string
 server.express.use(cookieParser()); 
+
+//custom middleware to decode JWT and get userId on each request
+server.express.use((req, res, next) => {
+  //get token out of request
+  const { token } = req.cookies;
+  if (token) {
+    const { userId } = jwt.verify(token, process.env.APP_SECRET);
+    //add the userId to the request for future requests to access
+    req.userId = userId;
+  }
+  next();
+})
 
 server.start({
   //make endpoint visitably only by approved urls
