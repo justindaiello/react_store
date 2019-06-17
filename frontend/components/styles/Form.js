@@ -3,23 +3,19 @@ import styled, { keyframes } from 'styled-components';
 const loading = keyframes`
   from {
     background-position: 0 0;
-    /* rotate: 0; */
   }
-
   to {
     background-position: 100% 100%;
-    /* rotate: 360deg; */
   }
 `;
 
 const Form = styled.form`
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
-  background: rgba(0, 0, 0, 0.02);
-  border: 5px solid white;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.075);
+  background: rgba(0, 0, 0, 0.05);
   padding: 20px;
   font-size: 1.5rem;
   line-height: 1.5;
-  font-weight: 600;
+  font-weight: bold;
   label {
     display: block;
     margin-bottom: 1rem;
@@ -41,10 +37,15 @@ const Form = styled.form`
     width: auto;
     background: ${props => props.theme.lightBlue};
     color: white;
-    border: 0;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: bold;
     padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    &:hover{
+      background: white;
+      color: ${props => props.theme.lightBlue};
+      border: .5px solid ${props => props.theme.lightBlue};
+    }
   }
   fieldset {
     border: 0;
