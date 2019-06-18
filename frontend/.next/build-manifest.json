@@ -15,7 +15,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/signup": [
+    "/items": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

@@ -1,7 +1,19 @@
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Error from './ErrorMessage';
+import Table from './styles/Table';
+import PropTypes from 'prop-types'
 
+
+//must match enum on the backend
+const possiblePermissions = [
+  'ADMIN', 
+  'USER',
+  'ITEMCREATE',
+  'ITEMUPDATE',
+  'ITEMDELETE',
+  'PERMISSIONUPDATE'
+];
 
 const ALL_USERS_QUERY = gql`
   query {
@@ -22,10 +34,84 @@ const Permissions = (props) => (
     {({data, loading, error}) => (
       <div>
         <Error error={error} />
-        <p>sup</p>
+        <div>
+          <h2>Manage Permissions</h2>
+          <Table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                {possiblePermissions.map(permission => <th key={permission}>{permission}</th>)}
+                <th>🛠️</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.users.map(user => <UserPermissions user={user} key={user.id}/>)}
+            </tbody>
+          </Table>
+        </div>
       </div>
     )}
   </Query>
 )
+
+class UserPermissions extends React.Component {
+
+  static propTypes = {
+    user: PropTypes.shape({
+      name: PropTypes.string,
+      email: PropTypes.string,
+      id: PropTypes.string,
+      permissions: PropTypes.array,
+    }).isRequired
+  }
+
+  //we'll be seeding data so its ok to use props here
+  state = {
+    permissions: this.props.user.permissions,
+  }
+
+  //handle change of checkboxes for permissions 
+  handlePermissionChange = (e) => {
+    const checkbox = e.target;
+    //take a copy of current permissions. copy state, update it then put it back
+    let updatedPermissions = [...this.state.permissions];
+    // console.log(updatedPermissions);
+    //figure out if we need to remove or add permission
+    if (checkbox.checked) {
+      //add it in
+      updatedPermissions.push(checkbox.value);
+    } else {
+      updatedPermissions = updatedPermissions.filter(
+        permission => permission !== checkbox.value)
+    }
+    this.setState({ permissions: updatedPermissions });
+  }
+
+  render() {
+    const user = this.props.user
+    return (
+      <tr>
+        <td>{user.name}</td>
+        <td>{user.email}</td>
+        {possiblePermissions.map(permission => (
+          <td key={permission}>
+            <label htmlFor={`${user.id}-permission-${permission}`}>
+              <input 
+              type="checkbox" 
+              checked={this.state.permissions.includes(permission)}
+              value={permission}
+              onChange={this.handlePermissionChange}
+              />
+            </label>
+          </td>
+        ))}
+        <td>
+          <button>Update</button>
+        </td>
+      </tr>
+    )
+  }
+}
 
 export default Permissions;

@@ -23,7 +23,7 @@ const Query = {
     }
     //check if the user has permissions to query all users
     hasPermission(context.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
-    //if the do, query all users
+    //if they do, query all users
     return context.db.query.users({}, info);
   },
 
