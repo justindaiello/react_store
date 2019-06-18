@@ -25,7 +25,7 @@ const Nav = () => (
           <Signout />
         </React.Fragment>
       )}
-
+      
       {!me && (
         <Link href="/signup">  
           <a>Sign-In</a>

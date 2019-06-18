@@ -1,5 +1,8 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { randomBytes } = require('crypto'); //built in node module for token security
+const { promisify } = require('util');//to turn randonBytes into an async promised based function
+
 //resolvers
 
 const mutations = {
@@ -93,7 +96,29 @@ const mutations = {
     //clear cookies using cookie parser
     context.response.clearCookie('token');
     return { message: 'You are now logged out'};
-  }
+  },
+
+  async requestReset(parent, args, context, info) {
+    //check is this is a real user
+    const user = await context.db.query.user({
+      where: { email: args.email }
+    });
+    if (!user) {
+      throw new Error(`No user found for email: ${args.email}`);
+    }
+    //if there is a user then set and generate a temp user token.
+    //take a buffer from randombytes and turn it into a string
+    const randomBytesPromisified = promisify(randomBytes)
+    const resetToken = (await randomBytesPromisified(20)).toString('hex');
+    const resetTokenExpiry = Date.now() + 3600000 //1hr 
+    //save variables and send them to the user
+    const res = await context.db.mutation.updateUser({
+      where: { email: args.email },
+      data: { resetToken: resetToken, resetTokenExpiry: resetTokenExpiry }
+    });
+    console.log(res);
+    return { message: 'resetting PW'};
+  },
 };
 
 module.exports = mutations;
