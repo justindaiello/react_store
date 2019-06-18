@@ -18,6 +18,8 @@ type Mutation {
   signOut: SuccessMessage
 
   requestReset(email: String!): SuccessMessage
+
+  resetPassword(resetToken: String!, password: String!, confirmPassword: String!): User!
 }
 
 

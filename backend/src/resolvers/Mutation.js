@@ -119,6 +119,42 @@ const mutations = {
     console.log(res);
     return { message: 'resetting PW'};
   },
+
+  async resetPassword(parent, args, context, info) {
+    //check if the passwords match
+    if (args.password !== args.confirmPassword) {
+      throw new Error('Passwords do not match.');
+    }
+    //Check token to make sure its legitimate and/or expired 
+    const [user] = await context.db.query.users({
+      where: {
+        resetToken: args.resetToken,
+        resetTokenExpiry_gte: Date.now() - 3600000
+      }
+    });
+    if (!user) {
+      throw new Error('Token invalid or expired.')
+    }
+    //otherwise, hash the new password
+    const password = await bcrypt.hash(args.password, 10);
+    //save the new password and remove the old one
+    const updatedUser = await context.db.mutation.updateUser({
+      where: { email: user.email },
+      data: {
+        password: password, 
+        resetToken: null,
+        resetTokenExpiry: null
+      },
+    });
+    //generate JWT and set it
+    const token = jwt.sign({ userId: updatedUser.id }, process.env.APP_SECRET);
+    context.response.cookie('token', token, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 365
+    });
+    // return the new user
+    return updatedUser;
+  },
 };
 
 module.exports = mutations;
