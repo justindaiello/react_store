@@ -6,12 +6,14 @@ import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 
 const CURRENT_USER_QUERY = gql`
-  me {
-    id 
-    email
-    name
-    permissions
-  }
+  query {
+    me {
+      id 
+      email
+      name
+      permissions
+    }
+ }
 `;
 
 const User = (props) => (
@@ -20,7 +22,7 @@ const User = (props) => (
   </Query>
 );
 
-User.PropTypes = {
+User.propTypes = {
   children: PropTypes.func.isRequired,
 }
 
