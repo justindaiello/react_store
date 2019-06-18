@@ -88,6 +88,12 @@ const mutations = {
     //return the user
     return user;
   },
+
+  signOut(parent, args, context, info) {
+    //clear cookies using cookie parser
+    context.response.clearCookie('token');
+    return { message: 'You are now logged out'};
+  }
 };
 
 module.exports = mutations;
