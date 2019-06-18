@@ -116,7 +116,6 @@ const mutations = {
       where: { email: args.email },
       data: { resetToken: resetToken, resetTokenExpiry: resetTokenExpiry }
     });
-    console.log(res);
     return { message: 'resetting PW'};
   },
 
