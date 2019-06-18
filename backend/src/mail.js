@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 
 const transport = nodemailer.createTransport({
   host: process.env.MAIL_HOST,
-  port: host: process.env.MAIL_PORT,
+  port: process.env.MAIL_PORT,
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASS
@@ -21,9 +21,9 @@ const makeEmail = text => `
     font-size 15px;
   ">
     <h2>Hi!<h2>
-    <p>{text}</p>
+    <p>${text}</p>
   </div>
 `;
 
 exports.transport = transport;
-exports makeEmail = makeEmail;
+exports.makeEmail = makeEmail;

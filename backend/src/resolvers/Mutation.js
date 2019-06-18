@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { randomBytes } = require('crypto'); //built in node module for token security
 const { promisify } = require('util');//to turn randonBytes into an async promised based function
+const { transport, makeEmail } = require('../mail');
 
 //resolvers
 
@@ -116,6 +117,17 @@ const mutations = {
       where: { email: args.email },
       data: { resetToken: resetToken, resetTokenExpiry: resetTokenExpiry }
     });
+    //email the reset token via nodemailer
+    const mailRes = await transport.sendMail({
+      from: 'justinaiello@gmail.com',
+      to: user.email, 
+      subject: 'Your Password Reset Token',
+      html: makeEmail(`Here is your link to reset your password: \n\n
+        <a href="${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}">
+          Click Here to Reset Your Password
+        </a>
+      `),
+    })
     return { message: 'resetting PW'};
   },
 
