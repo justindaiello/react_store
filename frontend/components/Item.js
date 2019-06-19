@@ -5,6 +5,7 @@ import TitleStyles from './styles/TitleStyles';
 import ItemStyles from './styles/ItemStyles';
 import formatMoney from '../lib/formatMoney';
 import DeleteItem from './DeleteItem';
+import AddToCart from './AddToCart';
 
 
 export default class Item extends Component {
@@ -35,7 +36,7 @@ export default class Item extends Component {
           }}>
             <a>Edit ✏️</a>
           </Link>
-          <button>Add to Cart 🛒</button>
+          <AddToCart id={item.id} />
           <DeleteItem id={item.id} />
         </div>
       </ItemStyles>

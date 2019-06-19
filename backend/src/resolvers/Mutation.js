@@ -47,6 +47,7 @@ const mutations = {
     );
   },
 
+  //TODO couldnt get context to work here, had to do ctx? 
   async deleteItem(parent, args, ctx, info) {
     const where = { id: args.id };
     // 1. find the item
@@ -211,6 +212,40 @@ const mutations = {
         id: args.userId
       }
     }, info)
+  },
+
+  async addToCart(parent, args, context, info) {
+    //Make sure user is signed in
+    const { userId } = context.request;
+    if (!userId) {
+      throw new Error('You must be signed in to add to the cart.')
+    }
+    //query the users current cart. query for multiple items
+    const [existingCartItem] = await context.db.query.cartItems({
+      where: {
+        user: { id: userId},
+        item: { id: args.id},
+      }
+    });
+    //check if item is already in the cart and increment by 1
+    if (existingCartItem) {
+      console.log('this item is already in the cart');
+      return context.db.mutation.updateCartItem({
+        where: { id: existingCartItem.id },
+        data: { quantity: existingCartItem.quantity + 1 }
+      }, info);
+    }
+    //else create a new cart item
+    return context.db.mutation.createCartItem({
+      data: {
+        user: {
+          connect: { id: userId } //use connect for prisma to connect 2 models
+        },
+        item: {
+          connect: { id: args.id },
+        }
+      }
+    }, info);
   },
 
 
