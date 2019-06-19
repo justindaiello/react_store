@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const { randomBytes } = require('crypto'); //built in node module for token security
 const { promisify } = require('util');//to turn randonBytes into an async promised based function
 const { transport, makeEmail } = require('../mail');
+const { hasPermission } = require('../utils');
 
 //resolvers
 
@@ -176,6 +177,34 @@ const mutations = {
     // return the new user
     return updatedUser;
   },
+
+  async updatePermissions(parent, args, context, info) {
+    //check if user is logged in
+    if (!context.request.userId) {
+      throw new Error('You must be logged in to use this feature.');
+    }
+    //query current user
+    const currentUser = await context.db.query.user({
+      where: {
+        id: context.request.userId,
+      },
+    }, info);
+    //check if user has permissions to do this
+    hasPermission(currentUser, ['ADMIN', 'PERMISSIONUPDATE']);
+    //update the permissions
+    return context.db.mutation.updateUser({
+      data: {
+        permissions: {
+          set: args.permissions,
+        },
+      },
+      where: {
+        id: args.userId
+      }
+    }, info)
+  },
+
+
 };
 
 module.exports = mutations;
