@@ -276,7 +276,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_CartItemStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/CartItemStyles */ "./components/styles/CartItemStyles.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "prop-types");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _RemoveFromCart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RemoveFromCart */ "./components/RemoveFromCart.js");
 var _jsxFileName = "/Users/aiello/Documents/dev_stuff/final_project/react-store/master/frontend/components/CartItem.js";
+
 
 
 
@@ -287,7 +289,7 @@ var CartItem = function CartItem(_ref) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CartItemStyles__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 9
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -296,35 +298,42 @@ var CartItem = function CartItem(_ref) {
     alt: cartItem.item.title,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "cart-item-details",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
     },
     __self: this
   }, cartItem.item.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 13
     },
     __self: this
   }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_1__["default"])(cartItem.item.price * cartItem.quantity), ' - ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: this
-  }, cartItem.quantity, " \xD7", Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_1__["default"])(cartItem.item.price), "/ea"))));
+  }, cartItem.quantity, " \xD7", Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_1__["default"])(cartItem.item.price), "/ea"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RemoveFromCart__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    id: cartItem.id,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }));
 };
 
 CartItem.propTypes = {
@@ -800,6 +809,163 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./components/RemoveFromCart.js":
+/*!**************************************!*\
+  !*** ./components/RemoveFromCart.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles_RemoveButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/RemoveButton */ "./components/styles/RemoveButton.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./User */ "./components/User.js");
+var _jsxFileName = "/Users/aiello/Documents/dev_stuff/final_project/react-store/master/frontend/components/RemoveFromCart.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation removeFromCart($id: ID!) {\n    removeFromCart(id: $id) {\n      id\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+var REMOVE_FROM_CART_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
+
+var RemoveFromCart =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(RemoveFromCart, _Component);
+
+  function RemoveFromCart() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, RemoveFromCart);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RemoveFromCart)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleUpdate", function (cache, payload) {
+      //read the cache
+      var data = cache.readQuery({
+        query: _User__WEBPACK_IMPORTED_MODULE_5__["CURRENT_USER_QUERY"]
+      });
+      console.log(data); //remove item from cart
+
+      var cartItemId = payload.data.removeFromCart.id;
+      data.me.cart = data.me.cart.filter(function (cartItem) {
+        return cartItem.id !== cartItemId;
+      }); //write it back into the cache
+
+      cache.writeQuery({
+        query: _User__WEBPACK_IMPORTED_MODULE_5__["CURRENT_USER_QUERY"],
+        data: data
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(RemoveFromCart, [{
+    key: "render",
+    value: function render() {
+      return (// mutation will immediately run the optimistic response to delte the item quicker then run the stuff on the back end to actually delete it
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
+          mutation: REMOVE_FROM_CART_MUTATION,
+          variables: {
+            id: this.props.id
+          },
+          update: this.handleUpdate,
+          optimisticResponse: {
+            __typename: 'Mutation',
+            removeFromCart: {
+              __typename: 'CartItem',
+              id: this.props.id
+            }
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 40
+          },
+          __self: this
+        }, function (removeFromCart, _ref) {
+          var loading = _ref.loading,
+              error = _ref.error;
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_RemoveButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            disabled: loading,
+            title: "Delete Item",
+            onClick: function onClick() {
+              removeFromCart().catch(function (err) {
+                return alert(err.message);
+              });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 53
+            },
+            __self: this
+          }, "\xD7");
+        })
+      );
+    }
+  }]);
+
+  return RemoveFromCart;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+_defineProperty(RemoveFromCart, "propTypes", {
+  id: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string.isRequired //removes item from cart quickly
+  //gets called as soon as we get a response back from the server after a mutation has been performed. cache is from apollo, payload is the info returned from the server
+
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (RemoveFromCart);
+
+/***/ }),
+
 /***/ "./components/Signout.js":
 /*!*******************************!*\
   !*** ./components/Signout.js ***!
@@ -1013,6 +1179,28 @@ var NavStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.ul.with
   return props.theme.lightgrey;
 });
 /* harmony default export */ __webpack_exports__["default"] = (NavStyles);
+
+/***/ }),
+
+/***/ "./components/styles/RemoveButton.js":
+/*!*******************************************!*\
+  !*** ./components/styles/RemoveButton.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+
+var RemoveButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
+  displayName: "RemoveButton",
+  componentId: "sc-1h13ul3-0"
+})(["font-size:3rem;background:none;border:0;cursor:pointer;&:hover{color:", ";}"], function (props) {
+  return props.theme.lightBlue;
+});
+/* harmony default export */ __webpack_exports__["default"] = (RemoveButton);
 
 /***/ }),
 

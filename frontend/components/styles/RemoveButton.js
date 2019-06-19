@@ -1,0 +1,13 @@
+import styled from 'styled-components'
+
+const RemoveButton = styled.button`
+  font-size: 3rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  &:hover {
+    color: ${props => props.theme.lightBlue};
+  }
+`;
+
+export default RemoveButton;
