@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import Router from 'next/router';
 import gql from 'graphql-tag';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -52,6 +53,9 @@ class Signup extends Component {
               e.preventDefault();
               const res = await signUp();
               this.setState({ name: '', email: '', password: ''});
+              Router.push({
+                pathname: '/',
+              })
             }}
           >
 
