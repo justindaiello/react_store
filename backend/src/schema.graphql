@@ -22,6 +22,10 @@ type Mutation {
   resetPassword(resetToken: String!, password: String!, confirmPassword: String!): User!
 
   updatePermissions(permissions: [Permission], userId: ID!): User
+
+  addToCart(id: ID!): CartItem
+
+  removeFromCart(id: ID!): CartItem
 }
 
 
@@ -41,5 +45,6 @@ type User {
   id: ID!
   name: String!
   email: String!
+  cart: [CartItem!]!
   permissions: [Permission!]!
 }
