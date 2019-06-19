@@ -47,13 +47,22 @@ const mutations = {
     );
   },
 
-  async deleteItem(parent, args, context, info) {
+  async deleteItem(parent, args, ctx, info) {
     const where = { id: args.id };
-    //find the item in the DB, pass in some raw gql
-    const item = await context.db.query.item({ where }, `{ id title }`);
-    //check if user owns item/has permissions
-    //delete it
-    return context.db.mutation.deleteItem({ where }, info);
+    // 1. find the item
+    const item = await ctx.db.query.item({ where }, `{ id title user { id }}`);
+    // 2. Check if they own that item, or have the permissions
+    const ownsItem = item.user.id === ctx.request.userId;
+    const hasPermissions = ctx.request.user.permissions.some(permission =>
+      ['ADMIN', 'ITEMDELETE'].includes(permission)
+    );
+
+    if (!ownsItem && !hasPermissions) {
+      throw new Error("You don't have permission to do that!");
+    }
+
+    // 3. Delete it!
+    return ctx.db.mutation.deleteItem({ where }, info);
   },
 
   async signUp(parent, args, context, info) {
