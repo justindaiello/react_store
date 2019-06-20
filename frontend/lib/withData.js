@@ -34,7 +34,7 @@ const createClient = ({ headers }) => {
         },
       },
       defaults: {
-        cartOpen: true,
+        cartOpen: false,
       },
     },
   });

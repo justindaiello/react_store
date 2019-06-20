@@ -8,8 +8,12 @@ const StoreButton = styled.button`
   padding: .8rem 1.5rem;
   transition: all 0.5s;
   cursor: pointer;
+  box-shadow: ${props => props.theme.boxShadow};
   &[disabled] {
     opacity: .5;
+  }
+  &:hover {
+    
   }
 `;
 

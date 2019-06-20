@@ -4,6 +4,7 @@ import NProgress from 'nprogress';
 import Nav from './Nav';
 import Router from 'next/router';
 import Cart from './Cart';
+import Search from './Search';
 
 
 //NProgress CSS in static folder. NPRogress will add loading bar based on next.js router input
@@ -29,7 +30,7 @@ const Logo = styled.h1`
     color: black;
     text-decoration: none;
   }
-  @media (max-width: 1300px) {
+  @media (max-width: 1000px) {
     margin: 0;
     text-align: center;
   }
@@ -37,12 +38,13 @@ const Logo = styled.h1`
 
 const StyledHeader = styled.header`
   .bar {
-    border-bottom: 10px solid ${props => props.theme.lightBlue};
+    border-bottom: 10px double ${props => props.theme.lightBlue};
+    line-height: 1;
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
     align-items: stretch;
-    @media (max-width: 1300px) {
+    @media (max-width: 1000px) {
       grid-template-columns: 1fr;
       justify-content: center;
     }
@@ -59,13 +61,13 @@ const Header = () => (
     <div className="bar">
       <Logo>
         <Link href="/">
-          <a>REACT STORE</a>
+          <a>GoAdventure</a>
         </Link>
       </Logo>
       <Nav />
     </div>
     <div className="sub-bar">
-      <p>Search</p>
+      <Search />
     </div>
     <Cart />
   </StyledHeader>

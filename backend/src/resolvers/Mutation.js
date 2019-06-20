@@ -4,6 +4,7 @@ const { randomBytes } = require('crypto'); //built in node module for token secu
 const { promisify } = require('util');//to turn randonBytes into an async promised based function
 const { transport, makeEmail } = require('../mail');
 const { hasPermission } = require('../utils');
+const stripe = require('../stripe'); //has all the stripe module methods
 
 //resolvers
 
@@ -269,7 +270,65 @@ const mutations = {
     return context.db.mutation.deleteCartItem({
       where: { id: args.id },
     }, info);
-  }
+  },
+
+  async createOrder(parent, args, context, info) {
+    //Query the current user & check for sign in
+    const { userId } = context.request;
+    if (!userId) {
+      throw new Error('You must be signed in to complete this order.')
+    }
+    const user = await context.db.query.user(
+      { where: { id: userId } },
+        `{ 
+        id 
+        name 
+        email 
+        cart {
+          id 
+          quantity 
+          item { title price id description image largeImage }
+        }}`
+      )
+    //recalculate the total price to make sure no one hacked the front end
+    const amount = user.cart.reduce((tally, cartItem) => 
+      tally + cartItem.item.price * cartItem.quantity, 0);
+    console.log(`going to charge ${amount}`);
+    //create a stripe charge...turn token into money.
+    const charge = await stripe.charges.create({
+      amount: amount, 
+      currency: 'USD', 
+      source: args.token
+    });
+    //convery cartitems into order items
+    const orderItems = user.cart.map(cartItem => {
+      const orderItem = {
+        ...cartItem.item,
+        quantity: cartItem.quantity,
+        user: { connect: { id: userId }},
+      }
+      delete orderItem.id; //got it from the spread...dont want it
+      return orderItem;
+    });
+    //create the order
+    const order = await context.db.mutation.createOrder({
+      data: {
+        total: charge.amount, //charge if from stripe
+        charge: charge.id,
+        items: { create: orderItems }, //prisma creates for us
+        user: { connect: { id: userId} }
+      }
+    });
+    //clean up and clear the users carta and delete cart items
+    const cartItemIds = user.cart.map(cartItem => cartItem.id);
+    await context.db.mutation.deleteManyCartItems({ //another prisma generated method
+      where: {
+        id_in: cartItemIds,
+      }
+    });
+    //return the order to the client
+    return order;
+  },
 
 
 };

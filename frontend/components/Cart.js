@@ -1,6 +1,7 @@
 import React from 'react';
 import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import { adopt } from 'react-adopt'; //help deal with the nested render props
 import User from './User';
 import CartItem from './CartItem';
 import CartStyles from './styles/CartStyles';
@@ -8,6 +9,7 @@ import CloseButton from './styles/CloseButton';
 import StoreButton from './styles/StoreButton';
 import calcTotalPrice from '../lib/calcTotalPrice';
 import formatMoney from '../lib/formatMoney';
+import Transaction from './Transaction';
 
 
 // @client lets apollo know not to go to gql api/server for this data b/c its client side
@@ -23,16 +25,20 @@ const TOGGLE_CART_MUTATION = gql`
   }
 `;
 
-const Cart = () => (
-  <User>{({ data: { me }}) => {
-    if (!me) return null;
-    return (
+//help with the nested prop types via adopt. arrow funcs and render are a workaround for the proptype errors
+const Composed = adopt({
+  user: ({ render }) => <User>{render}</User>,
+  toggleCart: ({ render }) => <Mutation mutation={TOGGLE_CART_MUTATION}>{render}</Mutation>,
+  localState: ({ render }) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>
+});
 
-    <Mutation mutation={TOGGLE_CART_MUTATION}>
-      {(toggleCart) => (
-      <Query query={LOCAL_STATE_QUERY}>
-        {({data}) => (
-        <CartStyles open={data.cartOpen}>
+const Cart = () => (
+  <Composed>
+    {({ user, toggleCart, localState }) => {
+      const me = user.data.me;
+      if (!me) return null;
+      return (
+        <CartStyles open={localState.data.cartOpen}>
           <header>
             <CloseButton 
               title="close"
@@ -55,17 +61,17 @@ const Cart = () => (
           </ul>
           <footer>
             <p>{formatMoney(calcTotalPrice(me.cart))}</p>
-            <StoreButton>CHECKOUT</StoreButton>
+            {me.cart.length && ( 
+              <Transaction>
+                <StoreButton>CHECKOUT</StoreButton>
+              </Transaction>
+            )}
           </footer>
-        </CartStyles>  
-        )}
-      </Query>
-        )}
-    </Mutation> 
-    )
+        </CartStyles> 
+      )
     }}
-  </User>
-  )
+  </Composed>
+)
 
 export default Cart;
 export { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION };

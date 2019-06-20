@@ -27,7 +27,7 @@ const Pagination = (props) => (
         return (
           <PaginationStyles>
             <Head>
-              <title>React Store Page {page} of {pages}</title>
+              <title>GoAdventure Page {page} of {pages}</title>
             </Head>
             {/* prefetch will prerender previous and next page on initial page render only works in production mode */}
             <Link 
