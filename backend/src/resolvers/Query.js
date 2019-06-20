@@ -27,6 +27,25 @@ const Query = {
     return context.db.query.users({}, info);
   },
 
+  async order(parent, args, context, info) {
+    //make sure user is logged in
+    if (!context.request.userId) {
+      throw new Error('You must be logged in to view this page');
+    }
+    //query the current order
+    const order = await context.db.query.order({
+      where: { id: args.id },
+    }, info);
+    //check if they have permission to see this order
+    const ownsOrder = order.user.id === context.request.userId;
+    const hasPermissionToSeeOrder = context.request.user.permissions.includes('ADMIN');
+    if (!ownsOrder || !hasPermissionToSeeOrder) {
+      throw new Error('You do not have permission to view this page.')
+    }
+    //return the order
+    return order;
+  },
+
 };
 
 
