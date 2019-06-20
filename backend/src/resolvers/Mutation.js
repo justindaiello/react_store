@@ -269,7 +269,31 @@ const mutations = {
     return context.db.mutation.deleteCartItem({
       where: { id: args.id },
     }, info);
-  }
+  },
+
+  async createOrder(parent, args, context, info) {
+    //Query the current user & check for sign in
+    const userId = context.request;
+    if (!userId) {
+      throw new Error('You must be signed in to complete this order.')
+    }
+    const user = await context.db.query.user(
+      { where: { id: userid } },
+        `{ 
+        id 
+        name 
+        email 
+        cart {
+          id 
+          quantity 
+          item { title price id description image }
+        }}`
+      )
+    //recalculate the total price to make sure no one hacked the front end
+    const amount = user.cart.reduce((tally, cartItem) => 
+      tally + cartItem.item.price * cartItem.quantity, 0);
+    console.log(`going to charge ${amount}`);
+  },
 
 
 };

@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/justin-aiello/react-store/dev
-# timestamp: Thu Jun 20 2019 11:40:01 GMT-0400 (Eastern Daylight Time)
+# timestamp: Thu Jun 20 2019 12:02:31 GMT-0400 (Eastern Daylight Time)
 
 type AggregateCartItem {
   count: Int!
@@ -815,7 +815,7 @@ type Order implements Node {
   items(where: OrderItemWhereInput, orderBy: OrderItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [OrderItem!]
   total: Int!
   user: User!
-  change: String!
+  charge: String!
 }
 
 """A connection to a list of items."""
@@ -831,7 +831,7 @@ type OrderConnection {
 input OrderCreateInput {
   id: ID
   total: Int!
-  change: String!
+  charge: String!
   items: OrderItemCreateManyInput
   user: UserCreateOneInput!
 }
@@ -1543,14 +1543,14 @@ enum OrderOrderByInput {
   id_DESC
   total_ASC
   total_DESC
-  change_ASC
-  change_DESC
+  charge_ASC
+  charge_DESC
 }
 
 type OrderPreviousValues {
   id: ID!
   total: Int!
-  change: String!
+  charge: String!
 }
 
 type OrderSubscriptionPayload {
@@ -1594,14 +1594,14 @@ input OrderSubscriptionWhereInput {
 
 input OrderUpdateInput {
   total: Int
-  change: String
+  charge: String
   items: OrderItemUpdateManyInput
   user: UserUpdateOneRequiredInput
 }
 
 input OrderUpdateManyMutationInput {
   total: Int
-  change: String
+  charge: String
 }
 
 input OrderWhereInput {
@@ -1675,46 +1675,46 @@ input OrderWhereInput {
 
   """All values greater than or equal the given value."""
   total_gte: Int
-  change: String
+  charge: String
 
   """All values that are not equal to given value."""
-  change_not: String
+  charge_not: String
 
   """All values that are contained in given list."""
-  change_in: [String!]
+  charge_in: [String!]
 
   """All values that are not contained in given list."""
-  change_not_in: [String!]
+  charge_not_in: [String!]
 
   """All values less than the given value."""
-  change_lt: String
+  charge_lt: String
 
   """All values less than or equal the given value."""
-  change_lte: String
+  charge_lte: String
 
   """All values greater than the given value."""
-  change_gt: String
+  charge_gt: String
 
   """All values greater than or equal the given value."""
-  change_gte: String
+  charge_gte: String
 
   """All values containing the given string."""
-  change_contains: String
+  charge_contains: String
 
   """All values not containing the given string."""
-  change_not_contains: String
+  charge_not_contains: String
 
   """All values starting with the given string."""
-  change_starts_with: String
+  charge_starts_with: String
 
   """All values not starting with the given string."""
-  change_not_starts_with: String
+  charge_not_starts_with: String
 
   """All values ending with the given string."""
-  change_ends_with: String
+  charge_ends_with: String
 
   """All values not ending with the given string."""
-  change_not_ends_with: String
+  charge_not_ends_with: String
   items_every: OrderItemWhereInput
   items_some: OrderItemWhereInput
   items_none: OrderItemWhereInput

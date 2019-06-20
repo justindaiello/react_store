@@ -53,5 +53,5 @@ type Order {
   items: [OrderItem!]!
   total: Int!
   user: User!
-  change: String!
+  charge: String!
 }
