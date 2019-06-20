@@ -12,12 +12,12 @@ const NavStyles = styled.ul`
   }
   a,
   button {
-    padding: 1rem 3rem;
+    padding: 0rem 3rem;
     display: flex;
     align-items: center;
     position: relative;
     text-transform: uppercase;
-    font-size: 1em;
+    font-size: .85em;
     cursor: pointer;
     @media (max-width: 700px) {
       font-size: 10px;
@@ -55,11 +55,11 @@ const NavStyles = styled.ul`
     }
     }
   }
-  @media (max-width: 1300px) {
+  @media (max-width: 1000px) {
     border-top: 1px solid ${props => props.theme.lightgrey};
     width: 100%;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 `;
 

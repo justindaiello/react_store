@@ -30,7 +30,7 @@ const Logo = styled.h1`
     color: black;
     text-decoration: none;
   }
-  @media (max-width: 1300px) {
+  @media (max-width: 1000px) {
     margin: 0;
     text-align: center;
   }
@@ -38,12 +38,13 @@ const Logo = styled.h1`
 
 const StyledHeader = styled.header`
   .bar {
-    border-bottom: 10px solid ${props => props.theme.lightBlue};
+    border-bottom: 10px double ${props => props.theme.lightBlue};
+    line-height: 1;
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
     align-items: stretch;
-    @media (max-width: 1300px) {
+    @media (max-width: 1000px) {
       grid-template-columns: 1fr;
       justify-content: center;
     }

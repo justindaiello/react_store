@@ -46,6 +46,19 @@ const Query = {
     return order;
   },
 
+  async orders(parent, args, context, info) {
+    //get the users ID and check for login
+    const { userId } = context.request;
+    if (!userId) {
+      throw new Error('You must be logged in to see this.')
+    }
+    //return the orders
+    return context.db.query.orders({
+      where: {
+        user: { id: userId }
+      }
+    }, info);
+  },
 };
 
 
