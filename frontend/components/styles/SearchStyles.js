@@ -32,10 +32,13 @@ const glow = keyframes`
 
 const SearchStyles = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
   input {
     width: 100%;
-    padding: 10px;
-    border: 0;
+    margin-right: 2em;
+    padding: 1px;
+    border: .5px solid ${props => props.theme.lightgrey};
     font-size: 2rem;
     &.loading {
       animation: ${glow} 0.5s ease-in-out infinite alternate;

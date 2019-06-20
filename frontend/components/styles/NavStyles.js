@@ -12,6 +12,7 @@ const NavStyles = styled.ul`
   }
   a,
   button {
+    color: ${props => props.theme.black};
     padding: 0rem 3rem;
     display: flex;
     align-items: center;

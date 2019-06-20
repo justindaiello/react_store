@@ -10,6 +10,9 @@ const loading = keyframes`
 `;
 
 const Form = styled.form`
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 3rem;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.075);
   background: rgba(0, 0, 0, 0.05);
   padding: 20px;

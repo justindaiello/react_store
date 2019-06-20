@@ -5,12 +5,14 @@ import NavStyles from './styles/NavStyles';
 import User from './User';
 import Signout from './Signout';
 import CartCount from './CartCount';
+import Search from './Search';
 
 const Nav = () => (
   
   <User>
     {({ data: { me } }) => (
     <NavStyles>
+      <Search />
       <Link href="/items">  
         <a>Shop</a>
       </Link>
