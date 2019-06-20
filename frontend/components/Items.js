@@ -35,6 +35,9 @@ const ItemsList = styled.div`
   grid-gap: 60px;
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr 1fr; 
+  }
 `;
 
 //use the query via render prop which keeps you from having to deal with higher order components like in redux 

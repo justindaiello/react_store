@@ -872,7 +872,7 @@ var Inner = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withCon
   componentId: "twpcqy-1"
 })(["max-width:", ";margin:0 auto;padding:2rem;"], function (props) {
   return props.theme.maxWidth;
-}); //inject global css
+}); // inject global css
 
 Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["injectGlobal"])(_templateObject(), theme.black);
 
@@ -894,31 +894,31 @@ function (_Component) {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 67
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 68
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 69
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 70
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 71
         },
         __self: this
       }, this.props.children)));

@@ -18,6 +18,12 @@ const theme = {
 
 const StyledPage = styled.div`
   background: white;
+  /* background-image: url('https://i.imgur.com/cLWDjgQ.jpg');
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
   color: ${props => props.theme.black};
 `;
 
@@ -27,7 +33,7 @@ const Inner = styled.div`
   padding: 2rem;
 `;
 
-//inject global css
+// inject global css
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
   html {

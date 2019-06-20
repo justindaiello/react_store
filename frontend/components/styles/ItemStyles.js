@@ -26,12 +26,19 @@ const Item = styled.div`
     border-top: 2px solid black;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1px;
-    background: ${props => props.theme.lightgrey};
+    background: ${props => props.theme.lightBlue};
     & > * {
       background: white;
       border: 0;
       font-size: 1rem;
       padding: 1rem;
+    }
+  }
+  button {
+    cursor: pointer;
+    &:hover {
+      background: ${props => props.theme.lightBlue};
+      color: white;
     }
   }
 `;
