@@ -9,6 +9,7 @@ import CloseButton from './styles/CloseButton';
 import StoreButton from './styles/StoreButton';
 import calcTotalPrice from '../lib/calcTotalPrice';
 import formatMoney from '../lib/formatMoney';
+import Transaction from './Transaction';
 
 
 // @client lets apollo know not to go to gql api/server for this data b/c its client side
@@ -60,7 +61,9 @@ const Cart = () => (
           </ul>
           <footer>
             <p>{formatMoney(calcTotalPrice(me.cart))}</p>
-            <StoreButton>CHECKOUT</StoreButton>
+            <Transaction>
+              <StoreButton>CHECKOUT</StoreButton>
+            </Transaction>
           </footer>
         </CartStyles> 
       )
