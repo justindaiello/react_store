@@ -543,7 +543,7 @@ var Header = function Header() {
       lineNumber: 63
     },
     __self: this
-  }, "REACT STORE"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, "GoAdventure"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 66
@@ -637,7 +637,7 @@ var Meta = function Meta() {
       lineNumber: 9
     },
     __self: this
-  }, "React Store"));
+  }, "GoAdventure"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Meta);
@@ -1098,22 +1098,33 @@ _defineProperty(RemoveFromCart, "propTypes", {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var downshift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! downshift */ "downshift");
-/* harmony import */ var downshift__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(downshift__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash.debounce */ "lodash.debounce");
-/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _styles_SearchStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/SearchStyles */ "./components/styles/SearchStyles.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var downshift__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! downshift */ "downshift");
+/* harmony import */ var downshift__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(downshift__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash.debounce */ "lodash.debounce");
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _styles_SearchStyles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/SearchStyles */ "./components/styles/SearchStyles.js");
+/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! util */ "util");
+/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_8__);
+
 var _jsxFileName = "/Users/aiello/Documents/dev_stuff/final_project/react-store/master/frontend/components/Search.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1123,23 +1134,50 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query SEARCH_ITEMS_QUERY($searchTerm: String!) {\n    items(\n      where: {\n        OR: [\n          { title_contains: $searchTerm },\n          { description_contains: $searchTerm }\n        ],\n      }\n    ) {\n      id\n      image\n      title\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 
  //package for search bar
 
 
- //allows you to run queries on demand rather than page load
+ //allows you to run queries on demand rather than page load. Exposes Apollo client so we can manually run queries
 
 
+ //prevents ddosing own site. Takes search events and fires then at appropriate times
 
 
+ //search is title or description contains search term. OR is from prisma
+
+var SEARCH_ITEMS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject()); //route search item to appropriate page
+
+var routeToItem = function routeToItem(item) {
+  next_router__WEBPACK_IMPORTED_MODULE_3___default.a.push({
+    pathname: '/item',
+    query: {
+      id: item.id
+    }
+  });
+};
 
 var AutoComplete =
 /*#__PURE__*/
@@ -1147,51 +1185,172 @@ function (_Component) {
   _inherits(AutoComplete, _Component);
 
   function AutoComplete() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, AutoComplete);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AutoComplete).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(AutoComplete)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      items: [],
+      loading: false //debounce postpones execution of functions that are happening too quickly
+
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", lodash_debounce__WEBPACK_IMPORTED_MODULE_6___default()(
+    /*#__PURE__*/
+    function () {
+      var _ref = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e, client) {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                //turn loading on
+                _this.setState({
+                  loading: true
+                }); //manually query apollo client
+
+
+                _context.next = 3;
+                return client.query({
+                  query: SEARCH_ITEMS_QUERY,
+                  variables: {
+                    searchTerm: e.target.value
+                  }
+                });
+
+              case 3:
+                res = _context.sent;
+
+                _this.setState({
+                  items: res.data.items,
+                  loading: false
+                });
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function (_x, _x2) {
+        return _ref.apply(this, arguments);
+      };
+    }(), 350));
+
+    return _this;
   }
 
   _createClass(AutoComplete, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_6__["SearchStyles"], {
+      var _this2 = this;
+
+      Object(downshift__WEBPACK_IMPORTED_MODULE_2__["resetIdCounter"])(); //gets rid of aria console error from downshift
+
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_7__["SearchStyles"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 12
+          lineNumber: 63
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(downshift__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        onChange: routeToItem,
+        itemToString: function itemToString(item) {
+          return item === null ? '' : item.title;
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 13
+          lineNumber: 64
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "search",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 14
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_6__["DropDown"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 15
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 16
-        },
-        __self: this
-      }, "Items go here"))));
+      }, function (_ref2) {
+        var getInputProps = _ref2.getInputProps,
+            getItemProps = _ref2.getItemProps,
+            isOpen = _ref2.isOpen,
+            inputValue = _ref2.inputValue,
+            highlightedIndex = _ref2.highlightedIndex;
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 69
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["ApolloConsumer"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 70
+          },
+          __self: this
+        }, function (client) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", _extends({}, getInputProps({
+            type: 'search',
+            placeholder: "Search For an Item",
+            id: "search",
+            className: _this2.state.loading ? 'loading' : '',
+            onChange: function onChange(e) {
+              e.persist(); //persists allows us to hold onto e.target.value
+
+              _this2.handleChange(e, client);
+            }
+          }), {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 72
+            },
+            __self: this
+          }));
+        }), isOpen && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_7__["DropDown"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 88
+          },
+          __self: this
+        }, _this2.state.items.map(function (item, index) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], _extends({}, getItemProps({
+            item: item
+          }), {
+            key: item.id,
+            highlighted: index === highlightedIndex,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 90
+            },
+            __self: this
+          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+            width: "50",
+            src: item.image,
+            alt: item.title,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 95
+            },
+            __self: this
+          }), item.title);
+        }), !_this2.state.items.length && !_this2.state.loading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 100
+          },
+          __self: this
+        }, "Nothing found for ", inputValue)));
+      }));
     }
   }]);
 
   return AutoComplete;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (AutoComplete);
 
@@ -1404,12 +1563,12 @@ __webpack_require__.r(__webpack_exports__);
 var CartStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "CartStyles",
   componentId: "dkue7f-0"
-})(["padding:20px;position:relative;background:white;position:fixed;height:100%;top:0;right:0;width:40%;min-width:500px;bottom:0;transform:translateX(100%);transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:5;display:grid;grid-template-rows:auto 1fr auto;", ";header{border-bottom:5px solid ", ";margin-bottom:2rem;padding-bottom:2rem;}footer{border-top:10px double ", ";margin-top:2rem;padding-top:2rem;display:grid;grid-template-columns:auto auto;align-items:center;font-size:3rem;font-weight:900;p{margin:0;}}ul{margin:0;padding:0;list-style:none;overflow:scroll;}"], function (props) {
+})(["padding:20px;position:relative;background:white;position:fixed;height:100%;top:0;right:0;width:40%;min-width:500px;bottom:0;transform:translateX(100%);transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:5;display:grid;grid-template-rows:auto 1fr auto;", ";header{border-bottom:5px solid ", ";margin-bottom:1rem;padding-bottom:1rem;}footer{border-top:5px solid ", ";margin-top:2rem;padding-top:2rem;display:grid;grid-template-columns:auto auto;align-items:center;font-size:3rem;font-weight:900;p{margin:0;}}ul{margin:0;padding:0;list-style:none;overflow:scroll;}"], function (props) {
   return props.open && "transform: translateX(0);";
 }, function (props) {
-  return props.theme.black;
+  return props.theme.lightBlue;
 }, function (props) {
-  return props.theme.black;
+  return props.theme.lightBlue;
 });
 /* harmony default export */ __webpack_exports__["default"] = (CartStyles);
 
@@ -1430,7 +1589,9 @@ __webpack_require__.r(__webpack_exports__);
 var CloseButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
   displayName: "CloseButton",
   componentId: "sc-11anwtb-0"
-})(["background:black;color:white;font-size:3rem;border:0;position:absolute;z-index:2;right:0;cursor:pointer;"]);
+})(["margin-right:2rem;background:none;color:", ";font-size:3rem;border:0;position:absolute;z-index:2;right:0;cursor:pointer;&:hover{color:red;}"], function (props) {
+  return props.theme.lightBlue;
+});
 /* harmony default export */ __webpack_exports__["default"] = (CloseButton);
 
 /***/ }),
@@ -1472,7 +1633,7 @@ __webpack_require__.r(__webpack_exports__);
 var RemoveButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
   displayName: "RemoveButton",
   componentId: "sc-1h13ul3-0"
-})(["font-size:3rem;background:none;border:0;cursor:pointer;&:hover{color:", ";}"], function (props) {
+})(["color:", ";font-size:3rem;background:none;border:0;cursor:pointer;&:hover{color:red;}"], function (props) {
   return props.theme.lightBlue;
 });
 /* harmony default export */ __webpack_exports__["default"] = (RemoveButton);
@@ -1536,8 +1697,10 @@ __webpack_require__.r(__webpack_exports__);
 var StoreButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
   displayName: "StoreButton",
   componentId: "sc-171d4hr-0"
-})(["display:inline-block;color:white;background:", ";font-size:2rem;padding:.8rem 1.5rem;transition:all 0.5s;cursor:pointer;&[disabled]{opacity:.5;}"], function (props) {
+})(["display:inline-block;color:white;background:", ";font-size:2rem;padding:.8rem 1.5rem;transition:all 0.5s;cursor:pointer;box-shadow:", ";&[disabled]{opacity:.5;}&:hover{}"], function (props) {
   return props.theme.lightBlue;
+}, function (props) {
+  return props.theme.boxShadow;
 });
 /* harmony default export */ __webpack_exports__["default"] = (StoreButton);
 
@@ -1557,7 +1720,7 @@ __webpack_require__.r(__webpack_exports__);
 // This is client side config only - don't put anything in here that shouldn't be public!
 var endpoint = "http://localhost:3001"; //pagination count
 
-var perPage = 4;
+var perPage = 6;
 
 /***/ }),
 
@@ -1667,7 +1830,7 @@ var createClient = function createClient(_ref) {
         }
       },
       defaults: {
-        cartOpen: true
+        cartOpen: false
       }
     }
   });
@@ -2025,6 +2188,17 @@ module.exports = require("react-transition-group");
 /***/ (function(module, exports) {
 
 module.exports = require("styled-components");
+
+/***/ }),
+
+/***/ "util":
+/*!***********************!*\
+  !*** external "util" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("util");
 
 /***/ })
 

@@ -60,7 +60,7 @@ const Header = () => (
     <div className="bar">
       <Logo>
         <Link href="/">
-          <a>REACT STORE</a>
+          <a>GoAdventure</a>
         </Link>
       </Logo>
       <Nav />
