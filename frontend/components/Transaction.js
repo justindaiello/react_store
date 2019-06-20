@@ -31,17 +31,16 @@ const totalItems = (cart) => {
 
 class Transaction extends Component {
   
-  handleToken = (res, createOrder) => {
-    console.log('On token called');
-    console.log(res.id)
+  handleToken = async (res, createOrder) => {
     //manually call the mutation once we have the stripe token
-    createOrder({
+    const order = await createOrder({
       variables: {
         token: res.id
       }
     }).catch(err => {
       alert(err.message)
     })
+    console.log(order)
   }
   
   render() {
