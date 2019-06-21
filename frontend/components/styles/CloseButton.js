@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const CloseButton = styled.button`
   margin-right: 2rem;
   background: none;
-  color: ${props => props.theme.lightBlue};
+  color: ${props => props.theme.green};
   font-size: 3rem;
   border: 0;
   position: absolute;

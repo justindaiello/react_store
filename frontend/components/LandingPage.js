@@ -10,11 +10,24 @@ const LandingImage = styled.div`
     height: 100vh;
     object-fit: cover;
   }
+  div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    p {
+      color: white;
+      font-size: 5rem;
+      font-weight: 600;
+      word-spacing: 1rem;
+    }
+  }
 `;
 
 
 const LandingPage = (props) => (
   <LandingImage>
+    <div><p>Buy. Sell. Go Adventure.</p></div>
     <img src="https://i.imgur.com/mIYX3BS.jpg" alt="home-page-photo" />
   </LandingImage>
 )
