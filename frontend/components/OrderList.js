@@ -26,10 +26,21 @@ const USER_ORDERS_QUERY = gql`
   }
 `;
 
+const Title = styled.h2`
+  text-align: center;
+`
+
 const OrderUl = styled.ul`
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+  margin-bottom: 1rem;
   display: grid;
   grid-gap: 4rem;
-  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  grid-template-columns: 1fr 1fr;
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
 `;
 
 class OrderList extends Component {
@@ -42,7 +53,7 @@ class OrderList extends Component {
           console.log(orders)
           return (
             <div>
-              <h2>You have {orders.length} orders</h2>
+              <Title>You have {orders.length} orders</Title>
               <OrderUl>
                 {orders.map(order =>(
                   <OrderItemStyles key={order.id}>
