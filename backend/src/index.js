@@ -6,6 +6,7 @@ const createServer = require('./createServer'); //import the create server file
 const db = require('./db'); //import database
 const server = createServer(); 
 
+//start it up!
 //allows use of any existing express middleware, cookies in this case. Allows access inside a formatted object rather than a string
 server.express.use(cookieParser()); 
 
