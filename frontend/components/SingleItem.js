@@ -2,27 +2,11 @@ import React, { Component } from 'react'
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import Error from './ErrorMessage';
-import styled from 'styled-components';
+import SingleItemStyles from './styles/SingleItemStyles';
 import Head from 'next/head'; //Next js has tools for side effects such as dynamically updating page title. You can have multiple heads and nextjs will work it out
+import formatMoney from '../lib/formatMoney';
+import AddToCart from './AddToCart';
 
-const SingleItemStyles = styled.div`
-  max-width: 1200px;
-  margin: 2rem auto;
-  box-shadow: ${props => props.theme.bs};
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-auto-flow: column;
-  min-height: 800px;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  .details {
-    margin: 3rem;
-    font-size: 2rem;
-  }
-`;
 
 //query the item
 const SINGLE_ITEM_QUERY = gql`
@@ -30,6 +14,7 @@ const SINGLE_ITEM_QUERY = gql`
     item(where: { id: $id} ) {
       id
       title
+      price
       description
       largeImage
     }
@@ -59,6 +44,9 @@ class SingleItem extends Component {
             <div className="details">
               <h2>{item.title}</h2>
               <p>{item.description}</p>
+              <p>Price: {formatMoney(item.price)}</p>
+              <AddToCart id={item.id} />
+
             </div>
           </SingleItemStyles>
         }}       
@@ -68,3 +56,4 @@ class SingleItem extends Component {
 }
 
 export default SingleItem;
+

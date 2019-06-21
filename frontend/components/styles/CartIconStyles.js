@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const CartIcon = styled.div`
   color: white;
-  background: ${props => props.theme.lightBlue};
+  background: ${props => props.theme.green};
   border-radius: 10%;
   padding: .5rem;
   line-height: 2rem;

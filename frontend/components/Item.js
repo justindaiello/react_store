@@ -13,6 +13,13 @@ export default class Item extends Component {
     item: PropTypes.object.isRequired,
   }
 
+  handleShortenDescription = (description, length) => {
+    if (description.length <= length) {
+      return description
+    }
+    return description.substr(0, length) + '....'
+  }
+
   render() {
     const { item } = this.props;
 
@@ -28,7 +35,7 @@ export default class Item extends Component {
             <a>{item.title} - {formatMoney(item.price)}</a>
           </Link>
         </TitleStyles>
-        <p>{item.description}</p>
+        <p>{this.handleShortenDescription(item.description, 60)}</p>
         <div className="buttonList">
           <Link href={{
             pathname: 'update',

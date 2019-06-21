@@ -11,7 +11,7 @@ const CartAnimation = styled.span`
   /* initial state */
   .count-enter {
     background: white;
-    color: ${props => props.theme.lightBlue};
+    color: ${props => props.theme.green};
   }
   .count-enter-active {
     

@@ -7,9 +7,8 @@ import Meta from './Meta';
 //Need to be strings b/c this is not CSS
 const theme = {
   lightBlue: '#99C0D1',
-  red: '#FF0000',
   black: '#393939',
-  grey: '#3A3A3A',
+  green: '#244031',
   lightgrey: '#E1E1E1',
   offWhite: '#EDEDED',
   maxWidth: '1000px',

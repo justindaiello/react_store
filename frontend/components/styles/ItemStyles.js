@@ -37,7 +37,7 @@ const Item = styled.div`
   button {
     cursor: pointer;
     &:hover {
-      background: ${props => props.theme.lightBlue};
+      background: ${props => props.theme.green};
       color: white;
     }
   }

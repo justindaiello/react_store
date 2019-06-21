@@ -1,9 +1,13 @@
 import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import styled from 'styled-components'
 import Error from './ErrorMessage';
 import Table from './styles/Table';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
+const Title = styled.h2`
+  text-align: center;
+`;
 
 //must match enum on the backend
 const possiblePermissions = [
@@ -52,7 +56,7 @@ const Permissions = (props) => (
       <div>
         <Error error={error} />
         <div>
-          <h2>Manage Permissions</h2>
+          <Title>Manage Permissions</Title>
           <Table>
             <thead>
               <tr>

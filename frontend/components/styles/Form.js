@@ -38,7 +38,7 @@ const Form = styled.form`
   button,
   input[type='submit'] {
     width: auto;
-    background: ${props => props.theme.lightBlue};
+    background: ${props => props.theme.green};
     color: white;
     font-size: 2rem;
     font-weight: bold;
@@ -46,8 +46,8 @@ const Form = styled.form`
     cursor: pointer;
     &:hover{
       background: white;
-      color: ${props => props.theme.lightBlue};
-      border: .5px solid ${props => props.theme.lightBlue};
+      color: ${props => props.theme.green};
+      border: .5px solid ${props => props.theme.green};
     }
   }
   fieldset {
@@ -61,7 +61,7 @@ const Form = styled.form`
       height: 10px;
       content: '';
       display: block;
-      background-image: linear-gradient(to right, ${props => props.theme.lightBlue} 0%, ${props => props.theme.lightgrey} 50%, ${props => props.theme.lightBlue} 100%);
+      background-image: linear-gradient(to right, ${props => props.theme.green} 0%, ${props => props.theme.lightgrey} 50%, ${props => props.theme.green} 100%);
     }
     &[aria-busy='true']::before {
       background-size: 50% auto;

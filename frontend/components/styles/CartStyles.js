@@ -10,6 +10,7 @@ const CartStyles = styled.div`
   right: 0;
   width: 30%;
   min-width: 300px;
+  max-width: 500px;
   bottom: 0;
   transform: translateX(100%);
   transition: all 0.3s;
@@ -19,17 +20,18 @@ const CartStyles = styled.div`
   grid-template-rows: auto 1fr auto;
   ${props => props.open && `transform: translateX(0);`};
   header {
-    border-bottom: 5px solid ${props => props.theme.lightBlue};
+    border-bottom: 5px solid ${props => props.theme.green};
     margin-bottom: 1rem;
     padding-bottom: 1rem;
   }
   footer {
-    border-top: 5px solid ${props => props.theme.lightBlue};
+    border-top: 5px solid ${props => props.theme.green};
     margin-top: 2rem;
     padding-top: 2rem;
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
+    justify-content: space-around;
     font-size: 3rem;
     font-weight: 900;
     p {
