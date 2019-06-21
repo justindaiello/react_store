@@ -38,7 +38,7 @@ const Query = {
     }, info);
     //check if they have permission to see this order
     const ownsOrder = order.user.id === context.request.userId;
-    const hasPermissionToSeeOrder = context.request.user.permissions.includes('ADMIN');
+    const hasPermissionToSeeOrder = context.request.user.permissions.includes('USER');
     if (!ownsOrder || !hasPermissionToSeeOrder) {
       throw new Error('You do not have permission to view this page.')
     }
