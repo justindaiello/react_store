@@ -483,7 +483,7 @@ var _jsxFileName = "/Users/aiello/Documents/dev_stuff/final_project/react-store/
 var ErrorStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "ErrorMessage__ErrorStyles",
   componentId: "irwmwx-0"
-})(["padding:2rem;background:white;margin:2rem 0;border:1px solid rgba(0,0,0,0.05);p{margin:0;font-weight:100;}strong{margin-right:1rem;}"]);
+})(["text-align:center;padding:2rem;background:white;margin:2rem 0;border:1px solid rgba(0,0,0,0.05);p{margin:0;font-weight:100;}strong{margin-right:1rem;}"]);
 
 var DisplayError = function DisplayError(_ref) {
   var error = _ref.error;
@@ -495,20 +495,20 @@ var DisplayError = function DisplayError(_ref) {
         key: i,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 25
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
         "data-test": "graphql-error",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 26
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 27
         },
         __self: this
       }, "Oh No!"), error.message.replace('GraphQL error: ', '')));
@@ -518,20 +518,20 @@ var DisplayError = function DisplayError(_ref) {
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ErrorStyles, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 34
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
     "data-test": "graphql-error",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 35
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("strong", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 36
     },
     __self: this
   }, "Oh no!"), error.message.replace('GraphQL error: ', '')));
