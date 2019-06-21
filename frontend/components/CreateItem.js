@@ -56,7 +56,7 @@ class CreateItem extends Component {
     data.append('upload_preset', 'reactstore') //needed to connect to cloudinary
 
     //hit the cloudinary api..can change info on cloudinary settings page
-    const res = await fetch('http://api.cloudinary.com/v1_1/reactstore/image/upload', {
+    const res = await fetch('https://api.cloudinary.com/v1_1/reactstore/image/upload', {
       method: 'POST',
       body: data
     });
