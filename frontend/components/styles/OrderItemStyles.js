@@ -1,17 +1,10 @@
 import styled from 'styled-components';
 
 const OrderItemStyles = styled.li`
-  box-shadow: ${props => props.theme.bs};
+  box-shadow: ${props => props.theme.boxShadow};
   list-style: none;
   padding: 2rem;
-  border: 1px solid ${props => props.theme.offWhite};
-  h2 {
-    border-bottom: 2px solid red;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-  }
-
+  border: 1px solid ${props => props.theme.lightgrey};
   .images {
     display: grid;
     grid-gap: 10px;
@@ -33,10 +26,6 @@ const OrderItemStyles = styled.li`
       margin: 0;
       background: rgba(0, 0, 0, 0.03);
       padding: 1rem 0;
-    }
-    strong {
-      display: block;
-      margin-bottom: 1rem;
     }
   }
 `;

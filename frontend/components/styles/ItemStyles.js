@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 const Item = styled.div`
   background: white;
-  border: 1px solid ${props => props.theme.offWhite};
-  box-shadow: ${props => props.theme.bs};
+  border: 1px solid black;
+  box-shadow: ${props => props.theme.boxShadow};
   position: relative;
   display: flex;
   flex-direction: column;
   img {
     width: 100%;
-    height: 400px;
+    height: 300px;
     object-fit: cover;
   }
   p {
@@ -23,15 +23,22 @@ const Item = styled.div`
   .buttonList {
     display: grid;
     width: 100%;
-    border-top: 1px solid ${props => props.theme.lightgrey};
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    border-top: 2px solid black;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1px;
-    background: ${props => props.theme.lightgrey};
+    background: ${props => props.theme.lightBlue};
     & > * {
       background: white;
       border: 0;
       font-size: 1rem;
       padding: 1rem;
+    }
+  }
+  button {
+    cursor: pointer;
+    &:hover {
+      background: ${props => props.theme.green};
+      color: white;
     }
   }
 `;

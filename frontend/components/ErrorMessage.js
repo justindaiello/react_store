@@ -8,7 +8,6 @@ const ErrorStyles = styled.div`
   background: white;
   margin: 2rem 0;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  border-left: 5px solid red;
   p {
     margin: 0;
     font-weight: 100;
@@ -24,7 +23,7 @@ const DisplayError = ({ error }) => {
     return error.networkError.result.errors.map((error, i) => (
       <ErrorStyles key={i}>
         <p data-test="graphql-error">
-          <strong>Shoot!</strong>
+          <b>Oh No!</b>
           {error.message.replace('GraphQL error: ', '')}
         </p>
       </ErrorStyles>
@@ -33,7 +32,7 @@ const DisplayError = ({ error }) => {
   return (
     <ErrorStyles>
       <p data-test="graphql-error">
-        <strong>Shoot!</strong>
+        <strong>Oh no!</strong>
         {error.message.replace('GraphQL error: ', '')}
       </p>
     </ErrorStyles>

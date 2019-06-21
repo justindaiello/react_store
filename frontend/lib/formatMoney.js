@@ -1,3 +1,5 @@
+//Function credit to Wes Bos
+
 export default function(amount) {
   const options = {
     style: 'currency',

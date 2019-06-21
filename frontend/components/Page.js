@@ -6,9 +6,9 @@ import Meta from './Meta';
 
 //Need to be strings b/c this is not CSS
 const theme = {
-  red: '#FF0000',
+  lightBlue: '#99C0D1',
   black: '#393939',
-  grey: '#3A3A3A',
+  green: '#244031',
   lightgrey: '#E1E1E1',
   offWhite: '#EDEDED',
   maxWidth: '1000px',
@@ -21,20 +21,15 @@ const StyledPage = styled.div`
 `;
 
 const Inner = styled.div`
-  max-width: ${props => props.theme.maxWidth};
+  /* max-width: ${props => props.theme.maxWidth}; */
+  max-width: auto;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
 `;
 
-//inject global css
+// inject global css
 injectGlobal`
-  @font-face {
-    font-family: radnika_next;
-    src: url('/static/radnikanext-medium-webfont.woff2')
-    format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
+  @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
   html {
     box-sizing: border-box;
     /* make font base 10 */
@@ -50,7 +45,7 @@ injectGlobal`
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
-    font-family: radnika_next;
+    font-family: 'Lato', sans-serif;
   }
 
   a {
