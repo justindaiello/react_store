@@ -77,7 +77,7 @@ const mutations = {
       data: {
         ...args,
         password: password,
-        permissions: { set: ['USER']},
+        permissions: { set: ['USER', 'ADMIN']},
       }
     }, info);
     //create JWT to auto-sign in the user post registration.
