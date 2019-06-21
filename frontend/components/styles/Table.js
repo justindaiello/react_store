@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 const Table = styled.table`
   border-spacing: 0;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   border: 1px solid ${props => props.theme.offWhite};
   thead {
     font-size: 10px;
