@@ -32,7 +32,15 @@ const mutations = {
     return item
   },
 
-  updateItem(parent, args, context, info) {
+  async updateItem(parent, args, context, info) {
+    const where = { id: args.id };
+    const item = await context.db.query.item({ where }, `{ id title user { id }}`);
+    // 2. Check if they own that item, or have the permissions
+    const ownsItem = item.user.id === context.request.userId;
+    if (!ownsItem) {
+      throw new Error("You don't have permission to do that!");
+    }
+
     //take a copy of the updates
     const updates = { ...args }
     //remove ID from the updates do we dont change it for a later
