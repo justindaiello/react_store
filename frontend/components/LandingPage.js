@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LandingImage = styled.div`
+const LandingImageStyles = styled.div`
   margin: 0;
   max-width: 100% !important;
   left: 0;
@@ -21,15 +21,18 @@ const LandingImage = styled.div`
       font-weight: 600;
       word-spacing: 1rem;
     }
+    @media(max-width: 500px) {
+      top: 60%
+    }
   }
 `;
 
 
 const LandingPage = (props) => (
-  <LandingImage>
+  <LandingImageStyles>
     <div><p>Buy. Sell. Go Adventure.</p></div>
     <img src="https://i.imgur.com/mIYX3BS.jpg" alt="home-page-photo" />
-  </LandingImage>
+  </LandingImageStyles>
 )
 
 export default LandingPage

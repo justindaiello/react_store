@@ -20,6 +20,9 @@ const PaginationStyles = styled.div`
     color: grey;
     pointer-events: none;
   }
+  @media (max-width: 700px) {
+    width: 90%;
+  }
 `;
 
 export default PaginationStyles;
