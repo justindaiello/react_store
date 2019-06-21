@@ -72,7 +72,7 @@ class AutoComplete extends Component {
                 <input 
                 {...getInputProps({
                   type: 'search',
-                  placeholder: "Search For an Item",
+                  placeholder: "Search For an Item 🔍",
                   id: "search",
                   className: this.state.loading ? 'loading' : '',
                   onChange: e => {

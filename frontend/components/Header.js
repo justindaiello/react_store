@@ -27,7 +27,7 @@ const Logo = styled.h1`
   position: relative;
   a {
     padding: 0.5rem 1rem;
-    color: black;
+    color: ${props => props.theme.black};
     text-decoration: none;
   }
   @media (max-width: 1000px) {
@@ -67,7 +67,7 @@ const Header = () => (
       <Nav />
     </div>
     <div className="sub-bar">
-      <Search />
+      {/* <Search /> */}
     </div>
     <Cart />
   </StyledHeader>

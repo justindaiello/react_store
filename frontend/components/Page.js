@@ -18,19 +18,14 @@ const theme = {
 
 const StyledPage = styled.div`
   background: white;
-  /* background-image: url('https://i.imgur.com/cLWDjgQ.jpg');
-  height: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
   color: ${props => props.theme.black};
 `;
 
 const Inner = styled.div`
-  max-width: ${props => props.theme.maxWidth};
+  /* max-width: ${props => props.theme.maxWidth}; */
+  max-width: auto;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
 `;
 
 // inject global css
