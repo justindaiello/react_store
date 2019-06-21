@@ -1,6 +1,7 @@
-endpoint: ${env:PRISMA_ENDPOINT}
+#endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://go-adve-production-f198dd17b8.herokuapp.com/go-adventure-prod/prod
 datamodel: datamodel.prisma
-# secret: ${env:PRISMA_SECRET}
+secret: ${env:PRISMA_SECRET}
 
 hooks:
   post-deploy:
