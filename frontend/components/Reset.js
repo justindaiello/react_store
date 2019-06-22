@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import Router from 'next/router';
 import PropTypes from 'prop-types';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -60,7 +61,10 @@ class Reset extends Component {
               e.preventDefault();
               await reset();
               this.setState({ password: '', confirmPassword: '' });
-            }}
+              Router.push({
+                pathname: '/',
+              })
+            }} 
           >
 
           <fieldset 
