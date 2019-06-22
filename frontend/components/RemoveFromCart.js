@@ -13,7 +13,6 @@ const REMOVE_FROM_CART_MUTATION = gql`
   }
 `;
 
-
 class RemoveFromCart extends Component {
 
   static propTypes = {

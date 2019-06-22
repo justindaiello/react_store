@@ -8,7 +8,7 @@ import DeleteItem from './DeleteItem';
 import AddToCart from './AddToCart';
 
 
-export default class Item extends Component {
+class Item extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
   }
@@ -50,3 +50,5 @@ export default class Item extends Component {
     )
   }
 }
+
+export default Item;
