@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { formatDistance } from 'date-fns';
 import Link from 'next/link';
-import styled from 'styled-components';
+import { Title, OrderUl} from './styles/OrderListStyles';
 import gql from 'graphql-tag';
 import Error from './ErrorMessage';
 import formatMoney from '../lib/formatMoney';
@@ -26,23 +26,6 @@ const USER_ORDERS_QUERY = gql`
   }
 `;
 
-const Title = styled.h2`
-  text-align: center;
-`
-
-const OrderUl = styled.ul`
-  max-width: ${props => props.theme.maxWidth};
-  margin: 0 auto;
-  margin-bottom: 1rem;
-  display: grid;
-  grid-gap: 4rem;
-  grid-template-columns: 1fr 1fr;
-  @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-    padding-left: 0;
-  }
-`;
-
 class OrderList extends Component {
   render() {
     return (
@@ -50,7 +33,6 @@ class OrderList extends Component {
         {({ data: { orders }, loading, error}) => {
           if (loading) return <p>Loading...</p>
           if (error) return <Error error={error} />
-          console.log(orders)
           return (
             <div>
               <Title>You have {orders.length} orders</Title>

@@ -49,7 +49,7 @@ class CreateItem extends Component {
   //handle the upload of images from cloudinary 
 
  uploadImage = async e => {
-    console.log('uploading image');
+    // console.log('uploading image');
     const files = e.target.files;
     const data = new FormData(); //USE JS data api
     data.append('file', files[0]);
@@ -62,7 +62,7 @@ class CreateItem extends Component {
     });
     //parse the data that comes back into json
     const file = await res.json();
-    console.log(file);
+    // console.log(file);
     this.setState({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url

@@ -4,7 +4,6 @@ import Nav from './Nav';
 import Router from 'next/router';
 import Cart from './Cart';
 import { Logo, StyledHeader } from './styles/HeaderStyles';
-import Search from './Search';
 
 
 //NProgress CSS in static folder. NPRogress will add loading bar based on next.js router input
