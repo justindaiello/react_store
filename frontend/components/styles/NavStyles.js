@@ -35,7 +35,7 @@ const NavStyles = styled.ul`
     }
     &:after {
       height: 2px;
-      background: black;
+      background: ${props => props.theme.black};
       content: '';
       width: 0;
       position: absolute;
@@ -44,6 +44,9 @@ const NavStyles = styled.ul`
       transition-timing-function: cubic-bezier(1, -0.65, 0, 2.31);
       left: 50%;
       margin-top: 2rem;
+      @media (max-width: 700px) {
+        background: none;
+      }
     }
     &:hover,
     &:focus {
@@ -51,9 +54,6 @@ const NavStyles = styled.ul`
       &:after {
         width: calc(100% - 60px);
       }
-    @media (max-width: 700px) {
-        width: calc(100% - 10px);
-    }
     }
   }
   @media (max-width: 1000px) {
