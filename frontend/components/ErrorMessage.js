@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ErrorStyles = styled.div`
+  text-align: center;
   padding: 2rem;
   background: white;
   margin: 2rem 0;
