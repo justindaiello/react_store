@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo'; //query directly into this component
 import gql from 'graphql-tag'; //get access to graph ql queries
-import { log } from 'async';
-import styled from 'styled-components';
+import { Center, ItemsList } from './styles/ItemsListStyles';
 import Item from './Item';
 import Pagination from './Pagination';
 import { perPage } from '../config';
@@ -22,23 +21,6 @@ const ALL_ITEMS_QUERY = gql`
       image
       largeImage
     }
-  }
-`;
-
-const Center = styled.div`
-  text-align: center;
-  max-width: 1000px;
-  margin: 0 auto;
-`;
-
-const ItemsList = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 60px;
-  max-width: ${props => props.theme.maxWidth};
-  margin: 0 auto;
-  @media (max-width: 700px) {
-    grid-template-columns: 1fr; 
   }
 `;
 
