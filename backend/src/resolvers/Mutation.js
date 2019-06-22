@@ -58,6 +58,10 @@ const mutations = {
 
   //TODO couldnt get context to work here, had to do ctx? 
   async deleteItem(parent, args, ctx, info) {
+    //check if user is logged in
+    if (!ctx.request.userId) {
+      throw new Error('You must be logged in to use this feature.');
+    }
     const where = { id: args.id };
     // 1. find the item
     const item = await ctx.db.query.item({ where }, `{ id title user { id }}`);
@@ -224,6 +228,11 @@ const mutations = {
   },
 
   async addToCart(parent, args, context, info) {
+    //check if user is logged in
+    if (!context.request.userId) {
+      throw new Error('You must be logged in to use this feature.');
+    }
+    
     //Make sure user is signed in
     const { userId } = context.request;
     if (!userId) {
