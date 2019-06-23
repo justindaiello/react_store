@@ -2115,7 +2115,9 @@ var createClient = function createClient(_ref) {
           credentials: 'include' //include logged in cookies when user makes a request
 
         },
-        headers: headers
+        headers: {
+          cookie: headers && headers.cookie
+        }
       });
     },
     //local data

@@ -11,7 +11,7 @@ const createClient = ({ headers }) => {
         fetchOptions: {
           credentials: 'include', //include logged in cookies when user makes a request
         },
-        headers,
+        headers: { cookie: headers && headers.cookie },
       });
     },
     //local data
