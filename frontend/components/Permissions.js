@@ -55,7 +55,7 @@ const Permissions = (props) => (
     {({data, loading, error}) => (
       <div>
         <Error error={error} />
-        {/* {data.users && (  */}
+        {data.users && ( 
         <div>
           <Title>Manage Permissions</Title>
           <Table>
@@ -72,7 +72,7 @@ const Permissions = (props) => (
             </tbody>
           </Table>
         </div>
-        {/* )} */}
+        )}
       </div>
     )}
   </Query>

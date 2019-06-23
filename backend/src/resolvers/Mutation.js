@@ -118,7 +118,7 @@ const mutations = {
     }
     //if PW is valid, generate JWT
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
-    //set the cookie with the token
+    //set the cookie with the JWT token
     context.response.cookie('token', token, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
