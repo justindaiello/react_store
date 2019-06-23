@@ -5,6 +5,7 @@ import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
 import { CURRENT_USER_QUERY } from './User';
+import { log } from 'async';
 
 const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION(
@@ -52,6 +53,7 @@ class Signin extends Component {
               e.preventDefault();
               const res = await signUp();
               this.setState({ name: '', email: '', password: ''});
+              console.log(this.state);
               Router.push({
                 pathname: '/',
               })
