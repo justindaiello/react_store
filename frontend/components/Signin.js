@@ -52,8 +52,6 @@ class Signin extends Component {
               e.preventDefault();
               const res = await signUp();
               this.setState({ name: '', email: '', password: ''});
-            
-              })
             }}
           >
 
