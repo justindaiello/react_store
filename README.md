@@ -1,4 +1,16 @@
 # GoAdventure App
 ### Tech Stack:
-1. Front End:
-...
+* **Front End:**
+   
+   -React/Next.js  
+   -Apollo Client  
+   -Styled Components  
+   -React Apollo  
+   
+* **Back End:**
+   
+   -Node/Express  
+   -GraphQL  
+   -Prisma  
+   -GraphQL Yoga  
+   -PostgreSQL
