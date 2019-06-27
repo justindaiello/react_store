@@ -1,5 +1,5 @@
 {
-  "/Users/aiello/Documents/dev_stuff/final_project/react-store/master/frontend/noop": [
+  "./noop": [
     {
       "id": "./node_modules/next/dist/client/noop.js",
       "name": "./node_modules/next/dist/client/noop.js",
