@@ -9,6 +9,7 @@ const Title = styled.h2`
   text-align: center;
 `;
 
+
 //must match enum on the backend
 const possiblePermissions = [
   'ADMIN', 
