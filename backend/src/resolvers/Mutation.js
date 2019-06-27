@@ -230,7 +230,7 @@ const mutations = {
   async addToCart(parent, args, context, info) {
     //check if user is logged in
     if (!context.request.userId) {
-      throw new Error('You must be logged in to use this feature.');
+      throw new Error('Please Sign In.');
     }
     
     //Make sure user is signed in
