@@ -3,9 +3,10 @@
 const nodemailer = require('nodemailer');
 
 const transport = nodemailer.createTransport({
-  // host: process.env.MAIL_HOST,
-  // port: process.env.MAIL_PORT,
-  service: "Mailjet",
+  host: process.env.MAIL_HOST,
+  port: process.env.MAIL_PORT,
+  secure: false,
+  requireTLS: true,
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASS
