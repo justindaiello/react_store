@@ -24,9 +24,9 @@ const Item = styled.div`
     display: grid;
     width: 100%;
     border-top: 2px solid black;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr auto;
     grid-gap: 1px;
-    background: ${props => props.theme.lightBlue};
+    background: black;
     & > * {
       background: white;
       border: 0;

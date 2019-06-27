@@ -26,7 +26,7 @@ class AddToCart extends Component {
       >
         {(addToCart, { loading, error }) => (
           <>
-          {/* <Error error={error} /> */}
+          <Error error={error} />
           <button 
             onClick={addToCart}
             disabled={loading}
