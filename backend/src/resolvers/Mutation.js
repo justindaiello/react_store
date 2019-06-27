@@ -153,7 +153,7 @@ const mutations = {
     });
     //email the reset token via nodemailer
     const mailRes = await transport.sendMail({
-      from: 'goadventurepwrecovery@goadventureapp.net',
+      from: 'justinaiello@gmail.com',
       to: user.email, 
       subject: 'Your Password Reset Token',
       html: makeEmail(`Here is your link to reset your password: \n\n
