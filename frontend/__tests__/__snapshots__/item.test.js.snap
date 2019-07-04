@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Item/> renders and matches the snapshot 1`] = `
+<ItemStyles__Item>
+  <img
+    alt="Super Cool Item"
+    src="fakeItem.jpg"
+  />
+  <TitleStyles__Title>
+    <Link
+      href={
+        Object {
+          "pathname": "/item",
+          "query": Object {
+            "id": "Fake Item Id",
+          },
+        }
+      }
+    >
+      <a>
+        Super Cool Item
+         - 
+        $125
+      </a>
+    </Link>
+  </TitleStyles__Title>
+  <p>
+    This is a cool fake item for testing.
+  </p>
+  <div
+    className="buttonList"
+  >
+    <Link
+      href={
+        Object {
+          "pathname": "update",
+          "query": Object {
+            "id": "Fake Item Id",
+          },
+        }
+      }
+    >
+      <button>
+        Edit ✏️
+      </button>
+    </Link>
+    <AddToCart
+      id="Fake Item Id"
+    />
+    <DeleteItem
+      id="Fake Item Id"
+    />
+  </div>
+</ItemStyles__Item>
+`;
